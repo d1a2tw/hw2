@@ -24,10 +24,10 @@ for(int i=0;i<sample;i++){
     wait(1./sample);
                 }
 
-/*for(int i=0;i<sample;i++){
+for(int i=0;i<sample;i++){
     pc.printf("%1.3f\r\n", ADCdata[i]);
                 }
-*/
+
            
 int t1=0;
 int num1=0;
