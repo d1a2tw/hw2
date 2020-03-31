@@ -24,10 +24,10 @@ for(int i=0;i<sample;i++){
     wait(1./sample);
                 }
 
-for(int i=0;i<sample;i++){
+/*for(int i=0;i<sample;i++){
     pc.printf("%1.3f\r\n", ADCdata[i]);
                 }
-
+*/
            
 int t1=0;
 int num1=0;
@@ -45,18 +45,17 @@ while(freq==0){
     
     if(num2==1)freq=1/((t2-t1+1)*0.001);              /////////// calculate freqeuncy
      
-    pc.printf("freq=%d\r\n",freq);
-    wait(0.1);
+
     i++;
               }
 
 
 
 
-//float wait_time=1/(100*freq);  //  T=1/freq ,wait time= period /100 parts
+float wait_time=1/(100*float(freq));  //  T=1/freq ,wait time= period /100 parts
 
-
-//pc.printf("%.8f\n",wait_time);
+pc.printf("freq=%d\r\n",freq);
+pc.printf("wait=%1.6f\r\n",wait_time);
 
 while(1)
 {
@@ -81,14 +80,23 @@ while(1)
         greenLED=0;
         redLED=1;
         display = clean[0];
-        /*for(int i=0;i<2;i+=0.02){   //  2pi divides to 100 parts
-            Aout=1+1*sin(i*3.14159);
-            wait(wait_time);     
-                            } */
+
     }
-
-
+        for(float i=0;i<2;i+=0.1){   //  2pi divides to 20 parts
+        Aout=0.5+0.5*sin(i*3.14159);
+        wait(0.0005);     
+                            } 
 }
+
+
+
+    /*for(float i=0; i<2; i+=0.05 ){
+
+      Aout = 0.5 + 0.5*sin(i*3.14159);
+
+      wait(0.001);
+
+                             }*/
 
 
 
